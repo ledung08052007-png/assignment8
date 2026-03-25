@@ -36,9 +36,17 @@ class Building:
         print("Running elevator", elevator_number, "to floor", destination)
         self.elevators[elevator_number - 1].go_to_floor(destination)
 
+    def fire_alarm(self):
+        print("Fire alarm! All elevators go to the bottom floor.")
+        for i in range(len(self.elevators)):
+            print("Elevator", i + 1)
+            self.elevators[i].go_to_floor(self.bottom)
+
 
 
 house = Building(1, 10, 3)
-house.run_elevator(1, 6)
-house.run_elevator(2, 4)
-house.run_elevator(3, 8)
+house.run_elevator(1, 7)
+house.run_elevator(2, 5)
+house.run_elevator(3, 9)
+
+house.fire_alarm()
